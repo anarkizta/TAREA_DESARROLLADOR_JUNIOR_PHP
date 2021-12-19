@@ -62,11 +62,11 @@ $hoy = date('d-m-Y', time());
                         <li class="active">
                             <div class="collapsible-header light-blue">
                                 <i class="large material-icons">equalizer</i>
-                                Graficos
+                                Graficos (por rango de fecha)
                             </div>
                             <div class="collapsible-body light-blue lighten-4">
                                 <div class="row">
-                                    <div class="col l12 card-panel">
+                                    <div id="btn" class="col l12 card-panel">
                                         <div class="row">
                                             <div class="col l3">
                                                 <label for="start">Inicio</label>
@@ -120,7 +120,7 @@ $hoy = date('d-m-Y', time());
                         <li>
                             <div class="collapsible-header teal">
                                 <i class="large material-icons">mode_edit</i>
-                                CRUD Unidades de Fomento
+                                CRUD Unidades de Fomento (ultimos 30 dias)
                             </div>
                             <div class="collapsible-body  teal lighten-3">
                                 <div class="row">

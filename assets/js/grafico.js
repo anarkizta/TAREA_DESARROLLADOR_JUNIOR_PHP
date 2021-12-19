@@ -1,14 +1,22 @@
 document.getElementById("graficar").style.display = 'none';
+document.getElementById("btn").style.display = '';
 
 function cargarGrafico()
 {
-    var inicio = document.getElementById("start").value; //fecha de inicio
-    var fin = document.getElementById("end").value; // fecha fin
-    var ano = inicio.slice(0, 4); // rescatar solo el año
-   // console.log("año->" + ano); // comprobar
-    var valor = document.getElementById("cod").value; //entregar value del commbobox 
-    var v = document.getElementById("cod");
-    var codigo = v.options[v.selectedIndex].text; //entregar el nombre del value
+    var inicio = "";
+    var fin = "";
+    var ano = "";
+    var valor = "";
+    var v = "";
+    var codigo = "";
+
+    inicio = document.getElementById("start").value; //fecha de inicio
+    fin = document.getElementById("end").value; // fecha fin
+    ano = inicio.slice(0, 4); // rescatar solo el año
+    // console.log("año->" + ano); // comprobar
+    valor = document.getElementById("cod").value; //entregar value del commbobox 
+    v = document.getElementById("cod");
+    codigo = v.options[v.selectedIndex].text; //entregar el nombre del value
 
 
     if (inicio == "" || fin == "")
@@ -72,29 +80,20 @@ function cargarGrafico()
 
         const mostrar = (indica) =>
         {
-
-            if (inicio == fin)
+            indica.serie.forEach(e =>
             {
-                myChart.data['labels'].push(indica.serie.fecha.slice(0, 10))
-                myChart.data['datasets'][0].data.push(indica.serie.valor)
-                myChart.update()
-            } else
-            {
-
-                indica.serie.forEach(e =>
+                if (e.fecha >= inicio && e.fecha <= fin)
                 {
-                    if (e.fecha >= inicio && e.fecha <= fin)
-                    {
-                        console.log(e.fecha);
-                        myChart.data['labels'].push(e.fecha.slice(0, 10))
-                        myChart.data['datasets'][0].data.push(e.valor)
-                        myChart.update()
-                    }
-                });
-            }
+                    console.log(e.fecha);
+                    myChart.data['labels'].push(e.fecha.slice(0, 10))
+                    myChart.data['datasets'][0].data.push(e.valor)
+                    myChart.update()
+                }
+            });
             console.log(myChart.data)
         }
         document.getElementById("graficar").style.display = '';
+         document.getElementById("btn").style.display = 'none';
     }
 }
 function simbolo(x)
