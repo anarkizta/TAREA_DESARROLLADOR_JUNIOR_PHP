@@ -182,9 +182,6 @@ new Vue({
             var instance = M.Modal.getInstance(document.querySelector('.modal'));
             instance.close();
         },
-        test: function ()
-        {
-        }
     }
 })
 

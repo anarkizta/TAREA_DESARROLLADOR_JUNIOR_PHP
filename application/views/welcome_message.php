@@ -76,8 +76,9 @@ $hoy = date('d-m-Y', time());
                                                 <label for="start">Fin</label>
                                                 <input type="date" id="end">
                                             </div>
-                                            <div class="col l4">
+                                            <div class="col l3">
                                                 <p>
+                                                    <label>Indicador</label>
                                                     <select id="cod" class="browser-default">
                                                         <option value="uf">Unidad de Fomento (UF)</option>
                                                         <option value="ivp">Indice de valor promedio (ivp)</option>
@@ -92,10 +93,11 @@ $hoy = date('d-m-Y', time());
                                                         <option value="tasa_desempleo">Tasa de desempleo</option>
                                                         <option value="bitcoin">Bitcoin</option>
                                                     </select>
+                                                  
                                                 <p>
 
                                             </div>
-                                            <div class="col l2 right-align"><br>
+                                            <div class="col l3 right-align"><br>
                                                 <button onclick="cargarGrafico()" class="btn right-align waves-effect waves-light red" name="action">Generar
                                                     <i class="material-icons right">equalizer</i>
                                                 </button>
@@ -138,7 +140,7 @@ $hoy = date('d-m-Y', time());
                                                     <tbody>
                                                         <tr>
                                                             <td class="red-text">
-                                                                {{uf.fecha.slice(0,10) | formatDate}}
+                                                                {{uf.fecha.slice(0,10)}}
                                                             </td>
                                                             <td class="red-text">
                                                                 {{Math.round(uf.valor)}}
